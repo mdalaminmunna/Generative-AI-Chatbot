@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Chatbot</title>
+    <script>
+        async function sendMessage() {
+            const query = document.getElementById("query").value;
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query }),
+            });
+            const data = await response.json();
+            document.getElementById("response").textContext = data.response || data.error;
+        }
+    </script>
+</head>
+<body>
+    <h1>Generative AI Chatbot</h1>
+    <textarea id="query" placeholder="Ask me anything..."></textarea>
+    <button onclick="sendMessage()">Send</button>
+    <p id="response"></p>
+    <button onclick="window.location.href='/analytics'">View Analytics</button>
+</body>
+</html>

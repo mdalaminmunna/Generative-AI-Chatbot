@@ -1,0 +1,6 @@
+CREATE TABLE interactions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_query TEXT NOT NULL,
+    chatbot_response TEXT NOT NULL,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
